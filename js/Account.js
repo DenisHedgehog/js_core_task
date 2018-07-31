@@ -39,9 +39,3 @@ class Account {
     }
 
 }
-
-// var dave = new Person("Dave", "01/10/1990")
-// var matt = new Person("Matt", "15/08/1987")
-// var acc1 = new Account("acc1")
-// var acc2 = new Account("acc2")
-// transferService.register(dave, acc1, 1000)

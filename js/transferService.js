@@ -17,7 +17,7 @@ var transferService = (function () {
     }
 
     function transfer(accountFrom, accountTo, sum) {
-        
+
         try {
             if (!accountFrom.isActivated) {
                 throw { type: 'not_active_account', message: `Счёт ${accountFrom.accountName} не активен` }
@@ -31,10 +31,9 @@ var transferService = (function () {
             accountFrom.balance -= sum;
             accountTo.balance += sum;
             var date = new Date();
-            var d = new Date(date.getTime() - 3000000);
-            var formatted_date = d.getFullYear().toString()+"-"+((d.getMonth()+1).toString().length==2?(d.getMonth()+1).toString():"0"+(d.getMonth()+1).toString())+"-"+(d.getDate().toString().length==2?d.getDate().toString():"0"+d.getDate().toString())+" "+(d.getHours().toString().length==2?d.getHours().toString():"0"+d.getHours().toString())+":"+((parseInt(d.getMinutes()/5)*5).toString().length==2?(parseInt(d.getMinutes()/5)*5).toString():"0"+(parseInt(d.getMinutes()/5)*5).toString())+":00";
+            var formatted_date = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
             console.log(`${formatted_date}. Со счёта ${accountFrom.accountName} переведено ${sum} руб. на счёт ${accountTo.accountName}`);
-        } catch(e) {
+        } catch (e) {
             console.log(e.message)
         }
 
